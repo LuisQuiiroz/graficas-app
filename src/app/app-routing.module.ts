@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BarrasComponent } from './graficas/pages/barras/barras.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    
+    path: 'graficas',
+    loadChildren: () => import('./graficas/graficas.module').then( module => module.GraficasModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'graficas'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
